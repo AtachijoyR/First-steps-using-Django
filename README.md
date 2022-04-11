@@ -5,7 +5,7 @@
 
 Este proyecto incide netamente en la materia Proyecto Desarrollo de software basado en plataformas.
 
-# Lo que quiero aprender:
+## Lo que quiero aprender:
 
 - Uso de Django
 - Uso de Stelve
