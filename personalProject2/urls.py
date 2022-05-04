@@ -19,12 +19,8 @@ from django.urls import include
 
 #from petclub.views import HelloWorld
 #from petclub.views import petAPIView
-from petclub.views import(
-    Helloworld,
-    PetListAPIView
-)
+from petclub.views import HelloWorld
 urlpatterns = [
     path('hi', HelloWorld.as_view(), name="helloworld"),
     path('api-auth/', include('rest_framework.urls')),
-    path('pets/',)
 ]
