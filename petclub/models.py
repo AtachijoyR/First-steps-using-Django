@@ -7,7 +7,6 @@ class Pet(models.Model):
     name2 = models.CharField(max_length=50)
     age = models.IntegerField()
     color = models.CharField(max_length=50)
-
     class Meta:
         managed = True
 
