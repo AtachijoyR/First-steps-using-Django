@@ -23,10 +23,13 @@ from django.urls import include
 from petclub.views import (
     HelloWorld,
     PetView,
-    PersonView,)
+    PersonView,
+    ListaPets,)
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('hi', HelloWorld.as_view(), name="helloworld"),
     path('pets', PetView.as_view(), name="Pet"),
     path('people', PersonView.as_view(), name="Person"),
     path('api-auth/', include('rest_framework.urls')),
+    path('Listar-Mascotas/', ListaPets.as_view()),
 ]

@@ -5,6 +5,17 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from rest_framework.generics import ListAPIView
+
+from rest_framework import status
+
+from .models import Pet
+
+from .serializers import PetSerializer
+
+
+
+
 class HelloWorld(APIView):
     def get(self, request): # verbo de la peticion como un metodo
         # logica asociada al endpoint
@@ -39,8 +50,32 @@ class PersonView(APIView):
 
 #class PetListAPIView(ListAPIView):
  #   def get(self, request):
-  #      return Response(data = "Estas son mis mascotas", status = 200)
+  #      pets = Pet.object.all()
+   #     pets_serializer = CustomPetSerializer(pets, many=True)
+    #    return Response(data = pets_serializer.data(), status = 200)
 
 #class petAPIView(RetrieveAPIView): #se debe poner en la URL
  #   def get(self, request):
   #      return Response(data = "Mi mascota",status = 200)
+
+class PersonApiView(APIView):
+    def post(self,request):
+        serializer = PersonCustomSerializer(data = request.data)
+        if serializer.is_valid():
+            validated_data = serializer.validated_data
+            person.object.Create(**validated_data)
+            status_code = status.HTTP_200_OK
+            data = PersonCustomSerializer(new_person).data
+        else:
+            status_code = status.HTTP_400_BAD_REQUEST
+            data = {'error': serializer.errors}
+
+        import pdb;pbd.set_trace()
+        return response(data="asd", status = 200)
+#LO APRENDIDO CON UDEMY DE ACÁ EN ADELANTE
+
+class ListaPets(ListAPIView):
+    serializer_class = PetSerializer
+    def get_queryset(self):
+        
+        return Pet.objects.all()
